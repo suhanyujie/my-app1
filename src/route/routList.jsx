@@ -1,18 +1,17 @@
-import Login from "../views/login/Login";
+import Admin from "../views/admin/Admin";
 import NewsSandBox from "../views/sandbox/NewsSandBox";
-import { Navigate } from "react-router";
 
 export const routeList = [
   {
-    path: "/login",
-    element: <Login />,
-    children: [],
+    path: "/",
+    element: <NewsSandBox />,
+    children1: [],
     needAuth: false,
   },
   {
-    path: "/",
-    element: <NewsSandBox />,
-    children: [],
+    path: "/admin",
+    element: <Admin />,
+    children1: [],
     needAuth: true,
   },
 ];

@@ -1,48 +1,46 @@
-import { HashRouter, Route } from "react-router-dom";
-import { Routes } from "react-router";
-import { routeList } from "./routList";
-import { PrivateRoute } from "./requireAuth";
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import { routeList } from './routList';
+import { PrivateRoute } from './requireAuth';
+import Login from '../views/login/Login';
+import { Fragment } from 'react';
 
 export default function index() {
-  const hasLogin = false;
+  return <RouterContent />;
+}
+
+function RouterContent() {
+  let hasLogin = false;
+
   return (
     <HashRouter>
-      <Routes>
-        {routeList.map((route) => {
-          console.log(route.path, route.needAuth);
-
-          return (
-            <Route
-              key={route.path}
-              path="{route.path}"
-              element={
-                <PrivateRoute hasLogin={hasLogin}>{route.element}</PrivateRoute>
-              }
-              {...route}
-            />
-          );
-
-          // if (route.needAuth) {
-          //   return (
-          //     <Route
-          //       key={route.path}
-          //       path="{route.path}"
-          //       element={<PrivateRoute>{route.element}</PrivateRoute>}
-          //       {...route}
-          //     />
-          //   );
-          // } else {
-          //   return (
-          //     <Route
-          //       key={route.path}
-          //       path="{route.path}"
-          //       element={route.element}
-          //       {...route}
-          //     />
-          //   );
-          // }
-        })}
-      </Routes>
+      <Fragment>
+        <Routes>
+          <Route key="login" path="/login" element={<Login />} />
+          {routeList.map((route) => {
+            if (route.needAuth) {
+              return (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={
+                    <PrivateRoute hasLogin={hasLogin}>
+                      {route.element}
+                    </PrivateRoute>
+                  }
+                />
+              );
+            } else {
+              return (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={route.element}
+                />
+              );
+            }
+          })}
+        </Routes>
+      </Fragment>
     </HashRouter>
   );
 }

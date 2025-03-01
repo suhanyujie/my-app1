@@ -1,13 +1,10 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet } from 'react-router-dom';
 
-export const PrivateRoute = ({ hasLogin }) => {
-  //   return <Navigate to="/login" replace />;
-
-  const token = localStorage.getItem("token");
-  console.log("redirect", !token);
-  if (!hasLogin) {
-    return <Navigate to="/login" replace />;
+export function PrivateRoute({ children, hasLogin, to }) {
+  // 待验证...
+  // return <Outlet />;
+  if (to == "" || to == undefined) {
+    to = "/login"
   }
-  // 如果用户已认证，渲染子路由
-  return <Outlet />;
-};
+  return hasLogin ? children : <Navigate to={to} replace />;
+}
