@@ -1,10 +1,10 @@
-import IndexRouter from "./route/index";
 import "./App.css";
+import NewsSandBox from "./views/sandbox/NewsSandBox";
 
 function App() {
   return (
     <>
-      <IndexRouter />
+      <NewsSandBox />
     </>
   );
 }
