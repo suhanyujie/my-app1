@@ -11,6 +11,9 @@
 ## ref
 
 - https://www.bilibili.com/video/BV1rz42167A6
+- 2025 React系统教程，耗时300小时制作，手把手带你从零到全栈开发 https://www.bilibili.com/video/BV17R63YTEXH
+- React Hooks 教程 2025 https://www.bilibili.com/video/BV1JcC5YQEKd
+- 用React & TailwindCSS构建漂亮的后台管理面板 https://www.bilibili.com/video/BV1CxpWeXEVJ/
 - 网友的 react 学习笔记
   - https://github.com/xzlaptt/React/blob/main/README.md
 - https://www.bilibili.com/video/BV1jiNgeoEws
