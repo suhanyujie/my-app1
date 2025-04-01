@@ -5,18 +5,16 @@ import IndexRouter from '../../route/index';
 import { Layout, Breadcrumb, theme } from 'antd';
 
 export default function NewsSandBox() {
-  const { Header, Content } = Layout;
+  const { Content } = Layout;
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh', width: '100%' }}>
       <SideMenu></SideMenu>
       <div>
-        <TopHeader>
-          <Header style={{ padding: 0, background: colorBgContainer }} />
-        </TopHeader>
+        <TopHeader />
 
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
@@ -28,6 +26,8 @@ export default function NewsSandBox() {
             style={{
               padding: 24,
               minHeight: 360,
+              height: '100vh',
+              minWidth: '600px',
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
             }}

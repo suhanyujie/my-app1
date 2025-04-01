@@ -1,51 +1,39 @@
 import React, { useState } from 'react';
 import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
+import './sidemenu.css';
 
 export default function SideMenu() {
   const { Sider } = Layout;
-  function getItem(label, key, icon, children) {
-    return {
-      key,
-      icon,
-      children,
-      label,
-    };
-  }
   const items = [
-    getItem('Option 1', '1', <PieChartOutlined />),
-    getItem('Option 2', '2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-      getItem('Tom', '3'),
-      getItem('Bill', '4'),
-      getItem('Alex', '5'),
-    ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [
-      getItem('Team 1', '6'),
-      getItem('Team 2', '8'),
-    ]),
-    getItem('Files', '9', <FileOutlined />),
+    {
+      key: '/user',
+      icon: <UserOutlined />,
+      label: '用户管理',
+      children: [
+        {
+          key: '/user/list',
+          label: '用户列表',
+        },
+        {
+          key: '/user/add',
+          label: '创建用户',
+        },
+      ],
+    },
   ];
   const [collapsed, setCollapsed] = useState(false);
 
   return (
     <div>
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-      >
-        <div className="demo-logo-vertical" />
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="left-logo">内容管理系统</div>
         <Menu
           theme="dark"
-          defaultSelectedKeys={['1']}
           mode="inline"
+          defaultSelectedKeys={['1']}
           items={items}
         />
       </Sider>
