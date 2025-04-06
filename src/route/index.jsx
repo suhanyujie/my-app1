@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { routeList } from './routList';
 import { PrivateRoute } from './requireAuth';
 import Login from '../views/login/Login';
@@ -14,7 +14,7 @@ function RouterContent() {
   return (
     <HashRouter>
       <Fragment>
-        <Routes>
+        <Switch>
           <Route key="login" path="/login" element={<Login />} />
           {routeList.map((route) => {
             if (route.needAuth) {
@@ -23,7 +23,7 @@ function RouterContent() {
                   key={route.path}
                   path={route.path}
                   element={
-                    <PrivateRoute hasLogin={hasLogin}>
+                    <PrivateRoute hasLogin={hasLogin} to="/">
                       {route.element}
                     </PrivateRoute>
                   }
@@ -39,7 +39,7 @@ function RouterContent() {
               );
             }
           })}
-        </Routes>
+        </Switch>
       </Fragment>
     </HashRouter>
   );

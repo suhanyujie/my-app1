@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
 import {
   DownOutlined,
   SettingOutlined,
@@ -28,11 +27,7 @@ export default function TopHeader() {
       label: (
         <span>
           <SettingOutlined style={{ marginRight: '10px' }} />
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.aliyun.com"
-          >
+          <a target="_blank" href="https://www.aliyun.com">
             2nd menu item
           </a>
         </span>
@@ -90,6 +85,3 @@ export default function TopHeader() {
   );
 }
 
-TopHeader.propTypes = {
-  children: PropTypes.node.isRequired,
-};

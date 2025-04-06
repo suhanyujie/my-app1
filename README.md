@@ -2,7 +2,10 @@
 
 虽然很久以前学过 html，css 和 JavaScript 的一些知识，但年代久远，对新一代的 Vue、React 等前端框架没有深入研究过，现在打算尝试深入学习，并使用它。
 
-学习过程中，参考[尚硅谷的视频教程](https://www.bilibili.com/video/BV1wy4y1D7JT)。
+学习过程中，参考[视频教程](https://www.bilibili.com/video/BV1jiNgeoEws)。
+
+## dev
+- `json-server ./data/db1.json --port=7001`
 
 ## plugin
 
@@ -10,11 +13,13 @@
 
 ## ref
 
+- 参考笔记 https://gitee.com/z1208091882/react-news-release-system/blob/master/%E7%AC%94%E8%AE%B0.md
+  - https://github.com/HiGypsophila/study-React
 - react sheet https://devhints.io/react
 - https://www.bilibili.com/video/BV1rz42167A6
-- 2025 React系统教程，耗时300小时制作，手把手带你从零到全栈开发 https://www.bilibili.com/video/BV17R63YTEXH
+- 2025 React 系统教程，耗时 300 小时制作，手把手带你从零到全栈开发 https://www.bilibili.com/video/BV17R63YTEXH
 - React Hooks 教程 2025 https://www.bilibili.com/video/BV1JcC5YQEKd
-- 用React & TailwindCSS构建漂亮的后台管理面板 https://www.bilibili.com/video/BV1CxpWeXEVJ/
+- 用 React & TailwindCSS 构建漂亮的后台管理面板 https://www.bilibili.com/video/BV1CxpWeXEVJ/
 - 网友的 react 学习笔记
   - https://github.com/xzlaptt/React/blob/main/README.md
 - https://www.bilibili.com/video/BV1jiNgeoEws

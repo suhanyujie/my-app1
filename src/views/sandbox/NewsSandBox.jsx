@@ -9,18 +9,25 @@ export default function NewsSandBox() {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const breadcrumbItems = [
+    {
+      title: '首页',
+      href: '/home',
+    },
+    {
+      title: '用户管理',
+      href: '/user',
+    },
+  ];
 
   return (
-    <Layout style={{ minHeight: '100vh', width: '100%' }}>
+    <Layout style={{ minHeight: '100vh' }}>
       <SideMenu></SideMenu>
       <div>
-        <TopHeader />
+        <TopHeader></TopHeader>
 
         <Content style={{ margin: '0 16px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
+          <Breadcrumb style={{ margin: '16px 0' }} items={breadcrumbItems} />
 
           <div
             style={{

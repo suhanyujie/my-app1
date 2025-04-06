@@ -1,10 +1,10 @@
-import "./App.css";
-import NewsSandBox from "./views/sandbox/NewsSandBox";
+import './App.css';
+import IndexRouter from './route/indexRouter.jsx';
 
 function App() {
   return (
     <>
-      <NewsSandBox />
+      <IndexRouter />
     </>
   );
 }

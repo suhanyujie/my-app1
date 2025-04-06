@@ -1,0 +1,102 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "text": "a comment about post 1",
+      "postId": 2
+    },
+    {
+      "id": 2,
+      "text": "another comment about post 1",
+      "postId": 2
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "menus": [
+    {
+      "id": "0",
+      "name": "首页",
+      "ismenu": true,
+      "path": "/home"
+    },
+    {
+      "id": "1",
+      "name": "用户管理",
+      "ismenu": true,
+      "path": "/user-manage"
+    },
+    {
+      "id": "2",
+      "name": "权限管理",
+      "ismenu": true,
+      "path": "/permission"
+    },
+    {
+      "id": "3",
+      "name": "权限管理1",
+      "ismenu": true,
+      "path": "/permission1"
+    }
+  ],
+  "menuChildren": [
+    {
+      "id": "1-1",
+      "name": "用户列表",
+      "menuId": "1",
+      "isShow": true,
+      "path": "/user-manage/list"
+    },
+    {
+      "id": "1-2",
+      "name": "用户新增",
+      "menuId": "1",
+      "isShow": false,
+      "path": "/user-manage/add"
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "roleName": "超级管理员",
+      "roleType": 1,
+      "rights": [
+        "/user-manage/delete",
+        "/user-manage/update",
+        "/right-manage",
+        "/right-manage/right/list",
+        "/right-manage/role/update",
+        "/right-manage/right/update",
+        "/news-manage",
+        "/news-manage/list",
+        "/news-manage/add",
+        "/news-manage/update/:id",
+        "/news-manage/preview/:id",
+        "/news-manage/draft",
+        "/news-manage/category",
+        "/audit-manage",
+        "/audit-manage/audit",
+        "/audit-manage/list",
+        "/publish-manage",
+        "/publish-manage/unpublished",
+        "/publish-manage/published",
+        "/publish-manage/sunset",
+        "/user-manage/list",
+        "/right-manage/role/list",
+        "/right-manage/role/delete",
+        "/right-manage/right/delete",
+        "/user-manage",
+        "/user-manage/add",
+        "/home"
+      ]
+    }
+  ]
+}
