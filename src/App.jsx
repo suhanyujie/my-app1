@@ -1,10 +1,12 @@
-import './App.css';
+import '@/App.css';
 import IndexRouter from './route/indexRouter.jsx';
+import TestComp1 from '@/views/learning/TestComp1.jsx';
 
 function App() {
   return (
     <>
-      <IndexRouter />
+      {/* <IndexRouter /> */}
+      <TestComp1 />
     </>
   );
 }

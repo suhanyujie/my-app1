@@ -1,6 +1,6 @@
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
-import Login from '../views/login/Login';
-import NewsSandBox from '../views/sandbox/NewsSandBox';
+import Login from '@/views/login/Login';
+import NewsSandBox from '@/views/sandbox/NewsSandBox';
 
 export default function IndexRouter() {
   let token = localStorage.getItem('token');

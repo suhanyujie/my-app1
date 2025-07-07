@@ -5,6 +5,7 @@
 学习过程中，参考[视频教程](https://www.bilibili.com/video/BV1jiNgeoEws)。
 
 ## dev
+
 - `json-server ./data/db1.json --port=7001`
 
 ## plugin
@@ -13,6 +14,7 @@
 
 ## ref
 
+- react note: https://github.com/dselegent/Learning-Notes/tree/master/react
 - 参考笔记 https://gitee.com/z1208091882/react-news-release-system/blob/master/%E7%AC%94%E8%AE%B0.md
   - https://github.com/HiGypsophila/study-React
 - react sheet https://devhints.io/react
