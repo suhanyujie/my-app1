@@ -1,6 +1,6 @@
 import '@/App.css';
 import IndexRouter from './route/indexRouter.jsx';
-import TestComp1 from '@/views/learning/TestComp1.jsx';
+import TestComp1 from '@/views/2_learning/TestComp1.jsx';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import { createRef } from 'react';
-import Event1 from '@/views/learning/9_event/Event1';
-import UncontrolledComp from '@/views/learning/10_formData/UncontrolledComp';
+import Event1 from '@/views/2_learning/9_event/Event1';
+import UncontrolledComp from '@/views/2_learning/10_formData/UncontrolledComp';
 import LifeTime1 from './12_lifetime/LifeTime1';
 import LifeTime2 from './12_lifetime/LifeTime2';
 import GetSnapShotBeforeUpdate from './12_lifetime/GetSnapShotBeforeUpdate';

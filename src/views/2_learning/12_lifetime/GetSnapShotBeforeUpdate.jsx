@@ -22,7 +22,7 @@ class GetSnapShotBeforeUpdate extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshotValue) {
     console.log('@1001: ', prevProps, prevState, snapshotValue);
-    this.refs.listBox.scrollTop =
+    this.refs.listBox.scrollTop +=
       this.refs.listBox.scrollHeight - snapshotValue;
   }
 
