@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class TodoItem extends Component {
+  static propTypes = {
+    deleteTodo: PropTypes.func.isRequired,
+  };
+
   state = {
     isMouseEnter: false,
   };
@@ -8,7 +13,7 @@ export default class TodoItem extends Component {
   handleChange = (event) => {
     const { updateTodoStatus } = this.props;
     const { target } = event;
-    let isDone = false;
+    let isDone = 1;
     let dataId = target.id;
     if (target.checked) {
       isDone = 2;
@@ -26,8 +31,15 @@ export default class TodoItem extends Component {
     };
   };
 
+  handleDelete = (id) => {
+    const { deleteTodo } = this.props;
+    return () => {
+      deleteTodo(id);
+    };
+  };
+
   render() {
-    const { item } = this.props;
+    const { item, deleteTodo } = this.props;
     const { isMouseEnter } = this.state;
     return (
       <div>
@@ -46,7 +58,10 @@ export default class TodoItem extends Component {
             onChange={this.handleChange}
           />
           <label htmlFor={item.id}>{item.content}</label>
-          <button style={{ display: isMouseEnter ? 'block' : 'none' }}>
+          <button
+            style={{ display: isMouseEnter ? 'block' : 'none' }}
+            onClick={this.handleDelete(item.id)}
+          >
             删除
           </button>
         </li>

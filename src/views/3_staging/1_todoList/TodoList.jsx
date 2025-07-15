@@ -7,10 +7,12 @@ export default class TodoList extends Component {
   static propTypes = {
     todos: PropTypes.array.isRequired,
     updateTodoStatus: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired,
   };
 
   render() {
-    const { todos, updateTodoStatus } = this.props;
+    const { todos, updateTodoStatus, deleteTodo, clearFinishedTodos } =
+      this.props;
     return (
       <div style={{ marginTop: '18px' }}>
         <ul style={{ listStylePosition: 'inside' }} className="todolist">
@@ -21,6 +23,7 @@ export default class TodoList extends Component {
                 key={item.id}
                 item={item}
                 updateTodoStatus={updateTodoStatus}
+                deleteTodo={deleteTodo}
               />
             );
           })}

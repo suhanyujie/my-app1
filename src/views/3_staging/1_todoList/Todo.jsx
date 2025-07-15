@@ -8,9 +8,9 @@ export default class Todo extends Component {
   // 状态在哪里，操作状态的方法 就在哪里
   state = {
     todos: [
-      { id: 1, content: '学习react', status: 1 },
-      { id: 2, content: '学习vue', status: 1 },
-      { id: 3, content: '学习angular', status: 1 },
+      { id: '1', content: '学习react', status: 1 },
+      { id: '2', content: '学习vue', status: 1 },
+      { id: '3', content: '学习angular', status: 1 },
     ],
   };
 
@@ -34,13 +34,41 @@ export default class Todo extends Component {
   };
 
   deleteTodo = (id) => {
+    if (window.confirm('确定删除吗？')) {
+      const { todos } = this.state;
+      const newTodos = todos.filter((todo) => {
+        return todo.id !== id;
+      });
+      this.setState({
+        todos: newTodos,
+      });
+    }
+  };
+
+  clearFinishedTodos = () => {
+    console.log('clearFinishedTodos');
     const { todos } = this.state;
     const newTodos = todos.filter((todo) => {
-      return todo.id !== id;
+      return todo.status === 1;
     });
-    this.setState({
-      todos: newTodos,
+    this.setState({ todos: newTodos });
+  };
+
+  checkIsFinishedAll = () => {
+    const { todos } = this.state;
+    let doneCnt = todos.reduce((prev, todo) => {
+      return prev + (todo.status === 1 ? 0 : 1);
+    }, 0);
+    let total = todos.length;
+    return doneCnt === total;
+  };
+
+  selectAll = () => {
+    const { todos } = this.state;
+    const newTodos = todos.map((todo) => {
+      return { ...todo, status: 2 };
     });
+    this.setState({ todos: newTodos });
   };
 
   render() {
@@ -58,8 +86,17 @@ export default class Todo extends Component {
         >
           <h1>todo</h1>
           <TodoHeader addNewNote={this.addNewNote} />
-          <TodoList todos={todos} updateTodoStatus={this.updateTodoStatus} />
-          <TodoFooter />
+          <TodoList
+            todos={todos}
+            updateTodoStatus={this.updateTodoStatus}
+            deleteTodo={this.deleteTodo}
+          />
+          <TodoFooter
+            todos={todos}
+            clearFinishedTodos={this.clearFinishedTodos}
+            checkIsFinishedAll={this.checkIsFinishedAll}
+            selectAll={this.selectAll}
+          />
         </div>
       </>
     );
