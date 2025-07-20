@@ -41,7 +41,6 @@ export default class TodoItem extends Component {
   render() {
     const { item } = this.props;
     const { isMouseEnter } = this.state;
-    console.log('todoItem render...item:', item);
     return (
       <div>
         <li

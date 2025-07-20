@@ -13,7 +13,6 @@ export default class TodoList extends Component {
   render() {
     const { todos, updateTodoStatus, deleteTodo, clearFinishedTodos } =
       this.props;
-    console.log('TodoList render...');
     return (
       <div style={{ marginTop: '18px' }}>
         <ul style={{ listStylePosition: 'inside' }} className="todolist">

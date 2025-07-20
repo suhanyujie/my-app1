@@ -19,7 +19,6 @@ export default class TodoFooter extends Component {
     let curIsAllDone = doneCnt === total;
     event.target.checked = !curIsAllDone;
     selectAll(event.target.checked);
-    console.log('handleChanged event:', event);
   };
 
   render() {
@@ -29,7 +28,6 @@ export default class TodoFooter extends Component {
     }, 0);
     let total = todos.length;
     let curIsAllDone = doneCnt === total;
-    console.log('doneCnt,total:', doneCnt, total, doneCnt === total);
 
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>

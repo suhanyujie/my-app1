@@ -69,7 +69,6 @@ export default class Todo extends Component {
       return { ...todo, status: isAllDone ? 2 : 1 };
     });
     this.setState({ todos: newTodos });
-    console.log('newTodos:', newTodos);
   };
 
   render() {
