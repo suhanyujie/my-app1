@@ -63,12 +63,13 @@ export default class Todo extends Component {
     return doneCnt === total;
   };
 
-  selectAll = () => {
+  selectAll = (isAllDone) => {
     const { todos } = this.state;
     const newTodos = todos.map((todo) => {
-      return { ...todo, status: 2 };
+      return { ...todo, status: isAllDone ? 2 : 1 };
     });
     this.setState({ todos: newTodos });
+    console.log('newTodos:', newTodos);
   };
 
   render() {

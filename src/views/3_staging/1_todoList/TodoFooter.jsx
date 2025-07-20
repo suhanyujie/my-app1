@@ -11,10 +11,15 @@ export default class TodoFooter extends Component {
   };
 
   localSelectAll = (event) => {
-    const { checkIsFinishedAll, selectAll } = this.props;
-    event.target.checked = checkIsFinishedAll();
-    console.log('handleChanged');
-    selectAll();
+    const { todos, selectAll } = this.props;
+    let doneCnt = todos.reduce((prev, todo) => {
+      return prev + (todo.status === 1 ? 0 : 1);
+    }, 0);
+    let total = todos.length;
+    let curIsAllDone = doneCnt === total;
+    event.target.checked = !curIsAllDone;
+    selectAll(event.target.checked);
+    console.log('handleChanged event:', event);
   };
 
   render() {
@@ -23,6 +28,7 @@ export default class TodoFooter extends Component {
       return prev + (todo.status === 1 ? 0 : 1);
     }, 0);
     let total = todos.length;
+    let curIsAllDone = doneCnt === total;
     console.log('doneCnt,total:', doneCnt, total, doneCnt === total);
 
     return (
@@ -30,7 +36,7 @@ export default class TodoFooter extends Component {
         <div>
           <input
             type="checkbox"
-            defaultChecked={doneCnt === total}
+            checked={curIsAllDone}
             onChange={this.localSelectAll}
           />
           <span>

@@ -39,8 +39,9 @@ export default class TodoItem extends Component {
   };
 
   render() {
-    const { item, deleteTodo } = this.props;
+    const { item } = this.props;
     const { isMouseEnter } = this.state;
+    console.log('todoItem render...item:', item);
     return (
       <div>
         <li
@@ -54,7 +55,7 @@ export default class TodoItem extends Component {
           <input
             type="checkbox"
             id={item.id}
-            defaultChecked={item.status === 2}
+            checked={item.status === 2}
             onChange={this.handleChange}
           />
           <label htmlFor={item.id}>{item.content}</label>
