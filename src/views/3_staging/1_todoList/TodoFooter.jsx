@@ -3,22 +3,15 @@ import React, { Component } from 'react';
 export default class TodoFooter extends Component {
   handleClearFinishedTodos = () => {
     const { clearFinishedTodos } = this.props;
-    console.log('handleClearFinishedTodos');
     return () => {
-      console.log('clearFinishedTodos-1001');
       clearFinishedTodos();
     };
   };
 
   localSelectAll = (event) => {
-    const { todos, selectAll } = this.props;
-    let doneCnt = todos.reduce((prev, todo) => {
-      return prev + (todo.status === 1 ? 0 : 1);
-    }, 0);
-    let total = todos.length;
-    let curIsAllDone = doneCnt === total;
-    event.target.checked = !curIsAllDone;
-    selectAll(event.target.checked);
+    const { selectAll } = this.props;
+    let curIsAllDone = event.target.checked;
+    selectAll(curIsAllDone);
   };
 
   render() {
@@ -27,7 +20,7 @@ export default class TodoFooter extends Component {
       return prev + (todo.status === 1 ? 0 : 1);
     }, 0);
     let total = todos.length;
-    let curIsAllDone = doneCnt === total;
+    let curIsAllDone = doneCnt === total && total > 0;
 
     return (
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -41,7 +34,7 @@ export default class TodoFooter extends Component {
             {doneCnt} / {total}
           </span>
         </div>
-        <button onClick={this.handleClearFinishedTodos}>清空已完成</button>
+        <button onClick={this.handleClearFinishedTodos()}>清空已完成</button>
       </div>
     );
   }

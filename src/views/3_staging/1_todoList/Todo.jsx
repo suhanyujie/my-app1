@@ -46,7 +46,6 @@ export default class Todo extends Component {
   };
 
   clearFinishedTodos = () => {
-    console.log('clearFinishedTodos');
     const { todos } = this.state;
     const newTodos = todos.filter((todo) => {
       return todo.status === 1;
