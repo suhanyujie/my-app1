@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default class Header extends Component {
   search = () => {
-    console.log(this);
+    const { setAppState } = this.props;
     const {
       keywordEle: { value: keyword },
     } = this.refs;
@@ -11,12 +11,16 @@ export default class Header extends Component {
     if (keyword.length === 0) {
       return;
     }
+    setAppState({ isLoading: true, isFirst: false });
+
     axios.get(`https://api.github.com/search/users?q=${keyword}`).then(
       (res) => {
-        console.log('success: ', res.data);
+        // console.log('res: ', res.data);
+        setAppState({ isLoading: false, userList: res.data.items });
       },
       (err) => {
         console.log('error: ', err);
+        setAppState({ isLoading: false, err: err.message });
       }
     );
   };
@@ -28,7 +32,7 @@ export default class Header extends Component {
           display: 'flex',
           justifyContent: 'center',
           width: '500px',
-          height: '168px',
+          height: '100px',
           border: '1px solid #ccc',
         }}
       >
